@@ -35,17 +35,17 @@ n match
   {
     /*  Nil Marks END of list  */
   case x if x <= 2 => Nil
-  case n =>
-    if (twinPrimes(n+2, n) || twinPrimes(n-2, n))
+  case x =>
+    if (twinPrimes(x+2, x) || twinPrimes(x-2, x))
     {
       /* Using recursion to add to list */
-      n :: twinPrimesList(n - 1)
+      x :: twinPrimesList(x - 1)
     }
     else
       {
         /* If N doesnt pass the if statement, else keep using recursion
         until if statement becomes true to add a new twinprime */
-        twinPrimesList(n - 1)
+        twinPrimesList(x - 1)
       }
 }
 }
