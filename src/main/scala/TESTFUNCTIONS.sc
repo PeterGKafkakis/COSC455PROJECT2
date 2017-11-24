@@ -33,7 +33,7 @@ def twinPrimesList(n : Int): List[Int] =
 {
 n match
   {
-    /* Empty List */
+    /*  Nil Marks END of list  */
   case x if x <= 2 => Nil
   case n =>
     if (twinPrimes(n+2, n) || twinPrimes(n-2, n))
@@ -63,27 +63,36 @@ def checkEven(n : Int): Boolean =
   false
 }
 
-
-def goldBach(n : Int): Unit =
+/* Creating a prime list function in order to have a list of ALL primes, not just
+twin primes
+ */
+def makePrimeList(n: Int): List[Int] =
 {
-  var myList : List[Int] = twinPrimesList(n)
-  myList = myList.reverse
+  n match {
+    case x if x <= 2 => Nil
+    case x => if (prime(x)) {
+      x :: makePrimeList(x - 1)
+    }
+    else {
+      makePrimeList(x - 1)
+    }
+  }
+}
 
+/* Calling makePrimeList */
+makePrimeList(40).reverse
+
+var a = makePrimeList(20)
+
+
+def goldBach(n : Int, primesList:List[Int]): List[(Int, Int)] =
+{
 n match
 {
-  case x if x <= 2 => println("Integer Parameter should be greater than 2")
-  case n =>
-     if (checkEven(n))
-       {
-         myList.contains(n)
-       }
-
+  case x if x <= 2 => List((0,0))
+  case x if checkEven(x) => for { x <- primesList; y <- primesList; if x+y == n } yield (x,y)
+}
 }
 
-
-
-}
-
-
-
+goldBach(24, a)
 
