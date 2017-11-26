@@ -1,6 +1,7 @@
-/* Peter Kafkakis COSC 455 PROJECT 2 */
+// COSC 455 - Programming Languages: Implementation and Design
+// Project 2
+// NAME: Peter Kafkakis
 
-/* Prime Function */
 def prime(num : Int): Boolean = !((2 until num - 1) exists (num % _ == 0))
 
 /* Test Cases for prime function */
@@ -94,5 +95,7 @@ n match
 }
 }
 
+// Passing in integer that we want to perform GoldBach Conjecture on.
+// Second Parameter is a list which is created with the makePrimeList Method
 goldBach(24, a)
 
