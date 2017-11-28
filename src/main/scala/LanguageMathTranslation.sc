@@ -34,17 +34,6 @@ def go(list : List[String]) : Unit = {
   }
 }
 
-
-/*
-def myUnion(aList: List[Int], anotherList: List[Int]): List[Int] =
-  anotherList match {
-    case Nil => aList
-    case anotherListHead::anotherListTail =>
-      if (myMember(anotherListHead, aList)) myUnion(aList, anotherListTail)
-      else anotherListHead::myUnion(aList, anotherListTail)
-  }
-*/
-
 // Function checks to see if the specified elements are in the list
 def myMember(element: String, aList: List[String]): Boolean =
   aList match {
