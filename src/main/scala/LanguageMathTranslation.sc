@@ -27,9 +27,10 @@ def go(list : List[String]) : Unit = {
   list match
     {
     case Nil => println("Nothing To Do")
-    case testList => val myList = convertToNumber(FilterOutElements(testList))
+    case testList => val myList = convertToNumber(filterOutElements(testList))
       println("Translation " + myList)
-      println("Addition " + myList.mkString("+") + " = " + addition(myList) + "\n")
+      println("Addition " + myList.mkString("+") + " = " + addition(myList))
+      println()
       println("Multiplication " + myList.mkString("*") + " = " + multiply(myList))
   }
 }
@@ -42,7 +43,7 @@ def myMember(element: String, aList: List[String]): Boolean =
   }
 
 // Using myMember function, this function will discard strings not part of the English/Chinese Language
-def FilterOutElements(list : List[String]) = list.filter(word => myMember(word, languageList))
+def filterOutElements(list : List[String]) = list.filter(word => myMember(word, languageList))
 
 // Multiply Function multiplies numbers in list from left to right
 def multiply(list : List[Int]) : Int = {list.foldLeft(1)(_ * _)}
@@ -67,7 +68,7 @@ list match
 }
 
 // Testing Functions
-addition(convertToNumber(FilterOutElements(test3)))
+addition(convertToNumber(filterOutElements(test3)))
 
 
 go(test1)
