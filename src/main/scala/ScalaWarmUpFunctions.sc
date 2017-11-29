@@ -1,7 +1,7 @@
 // COSC 455 - Programming Languages: Implementation and Design
 // Project 2
 // NAME: Peter Kafkakis
-// COMPLETED 
+// COMPLETED
 def prime(num : Int): Boolean = !((2 until num - 1) exists (num % _ == 0))
 
 /* Test Cases for prime function */
