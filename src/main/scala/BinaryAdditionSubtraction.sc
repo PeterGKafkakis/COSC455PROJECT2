@@ -57,14 +57,6 @@ def doBinaryAddition(pBits: List[Boolean], qBits: List[Boolean], carryBit: Boole
   }
 }
 
-def doBinarySubtraction(subtraction : List[Int]): List[Int] = {
-
-
-
-}
-
-
-
 
 // This function converts a binary integer list into its corresponding boolean list.
 def convertIntListToBooleanList(intList: List[Int]) = {
@@ -85,13 +77,22 @@ booleanList.map { case false => 0 case true => 1}
   Note that the
 */
 
+def twosComplement(list: List[Int]) : List [Int] = {
+  binaryAddition(convertBooleanListToIntList(convertIntListToBooleanList(list).map (x => !x)), List(1))
+}
+
+
 def binaryAddition(pList: List[Int], qList: List[Int]) = {
   //initial carry bit is assumed to be 0 (i.e., false).
   convertBooleanListToIntList(doBinaryAddition(convertIntListToBooleanList(pList).reverse, convertIntListToBooleanList(qList).reverse, false).reverse)
 }
-def bindarySubtraction(pList: List[Int], qList: List[Int]) = {
 
+// binarySubtraction Function
+def binarySubtraction(pList: List[Int], qList: List[Int]) = {
+  binaryAddition(pList, twosComplement(qList))
 }
+
+
 
 // Testing binary addition.
 if (binaryAddition(pTest1, qTest1).equals(test1ExectedSolution)) println("Test 1 passes!") else println("Test 1 fails.")
